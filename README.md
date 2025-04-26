@@ -5,8 +5,8 @@ BirdScape is a Streamlit application that allows users to explore bird species a
 ## Features
 
 - Interactive map for location selection
-- Bird species database integration
-- Audio soundscape generation
+- eBird API integration for real-time bird species data
+- Audio soundscape generation using NatureLM-audio
 - User-friendly interface
 
 ## Installation
@@ -17,16 +17,25 @@ git clone https://github.com/yourusername/birdscape.git
 cd birdscape
 ```
 
-2. Create a virtual environment and activate it:
+2. Install uv (if not already installed):
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install uv
 ```
 
-3. Install dependencies:
+3. Create a virtual environment and install dependencies using uv:
 ```bash
-pip install -r requirements.txt
+uv venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+uv pip install -r requirements.txt
 ```
+
+4. Set up your eBird API key:
+   - Create an account at https://ebird.org/
+   - Request an API key at https://ebird.org/api/keygen
+   - Create a `.env` file in the project root and add your API key:
+     ```
+     EBIRD_API_KEY=your_api_key_here
+     ```
 
 ## Usage
 
@@ -45,12 +54,23 @@ birdscape/
 │   ├── __main__.py     # Main entry point
 │   ├── app.py          # Streamlit application
 │   ├── utils.py        # Utility functions
-│   └── config.py       # Configuration settings
+│   ├── config.py       # Configuration settings
+│   └── ebird_hotspots.py # eBird API integration
 ├── tests/              # Test directory
 ├── docs/               # Documentation
 ├── requirements.txt    # Project dependencies
 └── setup.py           # Package setup file
 ```
+
+## Dependencies
+
+This project uses several key dependencies:
+
+- **NatureLM-audio**: A multimodal audio-language foundation model for bioacoustics, used for bird sound generation and analysis. [GitHub Repository](https://github.com/earthspecies/NatureLM-audio)
+- **eBird API**: For accessing real-time bird observation data and species lists
+- **Streamlit**: For building the web interface
+- **Folium**: For interactive map visualization
+- **uv**: Fast Python package installer and resolver
 
 ## Contributing
 

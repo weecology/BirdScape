@@ -13,7 +13,7 @@ BirdScape is a Streamlit application that allows users to explore bird species a
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/birdscape.git
+git clone https://github.com/Weecology/BirdScape/birdscape.git
 cd birdscape
 ```
 
